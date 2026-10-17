@@ -16,7 +16,14 @@
 void draw_normal_text(char* text, int pos_x, int pos_y, Color color);
 void draw_image(Texture2D image, int pos_x, int pos_y);
 
+typedef struct s_gates {
+    int and_gates;
+    int or_gates;
+    int not_gates;
+} t_gates;
 
-int parser_file(char* vhd_file);
+
+t_gates* parser_file(char* file);
+
 
 #endif

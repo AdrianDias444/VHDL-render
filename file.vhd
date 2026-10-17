@@ -6,8 +6,8 @@ architecture
     
 begin
     
-    
+or not 
     
 end architecture 
-    ;
+    not; not not
 amd

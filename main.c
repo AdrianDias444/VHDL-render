@@ -42,15 +42,23 @@ int main(int argc, char** argv)
     InitWindow(1280, 720, "VHDL Render");
 
     Texture2D texture = load_texture();
-    char* text = ft_itoa(parser_file("file.vhd"));
+    t_gates* gate_manager = parser_file(argv[1]);
 
-    while(!WindowShouldClose())
+
+	char* and = ft_itoa(gate_manager -> and_gates);
+	char* or = ft_itoa(gate_manager -> or_gates);
+	char* not = ft_itoa(gate_manager -> not_gates);
+
+
+	while(!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(DARKGRAY);
         
 
-        draw_normal_text(text, 300, 150, BLACK);
+        draw_normal_text(and, 300, 150, BLACK);
+        draw_normal_text(or, 300, 200, BLACK);
+        draw_normal_text(not, 300, 250, BLACK);
 
 
         draw_image(load_texture(), 0, 50);

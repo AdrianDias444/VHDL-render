@@ -1,41 +1,74 @@
 #include "../header.h"
 
-int parser_and_gate(int fd)
+
+t_gates* create_gate_manager()
+{
+    t_gates* gate_object;
+
+    gate_object = malloc(sizeof(t_gates));
+    if(!gate_object)
+        return(NULL);
+    
+    gate_object -> and_gates = 10;
+    gate_object -> or_gates = 10;
+    gate_object -> not_gates = 10;
+    
+    return(gate_object);
+}
+
+
+
+int count_word(char* word_check, char* file)
 {
     char*   line;
     char**  line_elements;
     int     i;
-    int     and_count;
-    char*   and = "and";
+    int     count;
 
-    and_count = 0;
-    while(line = get_next_line(fd))
+    int fd = open(file, O_RDONLY);
+    count = 0;
+    line = ft_remove_newline(get_next_line(fd));
+    while(line)
     {
         line_elements = ft_split(line, ' ');
-        if(line_elements)
+        i = 0;
+        while(line_elements[i])
         {
-            i = 0;
-            while(line_elements[i])
-            {
-                if(ft_strcmp(line_elements[i], and) == 0)
-                    and_count++;
-                i++;
-            }
-            i = 0;
-            while(line_elements[i])
-                free(line_elements[i++]);
-            free(line_elements);
+            if(ft_strcmp(line_elements[i], word_check) == 0)
+                count++;
+            i++;
         }
-        free(line);
+        line = ft_remove_newline(get_next_line(fd));
     }
-    return(and_count);
+    close(fd);
+    return(count);
 }
-int parser_file(char* vhd_file)
+
+
+t_gates* parser_file(char* file)
 {
     int fd;
+    t_gates* gate_manager;
 
-    fd = open(vhd_file, O_RDONLY);
-    if(fd < 0)
-        return(-1);
-    return(parser_and_gate(fd));
+    gate_manager = create_gate_manager();
+    gate_manager -> and_gates = count_word("and", file);
+    gate_manager -> or_gates = count_word("or", file);
+    gate_manager -> not_gates = count_word("not", file);
+
+    return(gate_manager);
 }
+
+/*
+test
+int main()
+{
+    t_gates* gate_manager;
+
+    gate_manager = parser_file();
+
+    printf("And gates is %d\n", gate_manager -> and_gates);
+    printf("Or gates is %d\n", gate_manager -> or_gates);
+    printf("Not gates is %d\n", gate_manager -> not_gates);
+}
+
+*/

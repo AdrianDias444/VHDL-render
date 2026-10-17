@@ -12,6 +12,7 @@ SOURCES = raylib/draw_text.c \
 		lib/str/ft_strdup.c \
 		lib/str/ft_strcmp.c \
 		lib/str/ft_itoa.c \
+		lib/str/ft_remove_newline.c \
 		lib/get_next_line/get_next_line.c \
 		lib/get_next_line/get_next_line_utils.c \
 		\
@@ -27,7 +28,7 @@ RM = rm -f
 
 all: $(NAME)
 	$(CC) $(MAIN_FILE) $(NAME)
-	$(RM) $(OBJECTS) $(NAME)
+	$(RM) $(OBJECTS)
 $(NAME): $(OBJECTS)
 	$(COMPRESS) $(NAME) $(OBJECTS)
 
