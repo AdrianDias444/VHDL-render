@@ -36,14 +36,21 @@ void endProgram()
     exit(1);
 }
 
-int main()
+
+int main(int argc, char** argv)
 {
     InitWindow(1280, 720, "VHDL Render");
+
+    Texture2D texture = load_texture();
+    char* text = ft_itoa(parser_file("file.vhd"));
+
     while(!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(DARKGRAY);
-        draw_normal_text("Example", 100, 50, BLACK);
+        
+
+        draw_normal_text(text, 300, 150, BLACK);
 
 
         draw_image(load_texture(), 0, 50);
@@ -52,3 +59,4 @@ int main()
     endProgram();
 
 }
+

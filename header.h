@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <raylib.h>
 #include <curses.h>
+#include <fcntl.h>
 
 #include "lib/lib.h"
 
@@ -15,5 +16,7 @@
 void draw_normal_text(char* text, int pos_x, int pos_y, Color color);
 void draw_image(Texture2D image, int pos_x, int pos_y);
 
+
+int parser_file(char* vhd_file);
 
 #endif
