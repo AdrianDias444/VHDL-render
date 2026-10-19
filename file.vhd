@@ -1,13 +1,1 @@
-f is a selfish
-and and
-
-architecture 
-    of file is
-    
-begin
-    
-or not 
-    
-end architecture 
-    not; not not
-amd
+f <= a1 and (a2 or a3)

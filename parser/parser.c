@@ -9,9 +9,9 @@ t_gates* create_gate_manager()
     if(!gate_object)
         return(NULL);
     
-    gate_object -> and_gates = 10;
-    gate_object -> or_gates = 10;
-    gate_object -> not_gates = 10;
+    gate_object -> and_gates = 0;
+    gate_object -> or_gates = 0;
+    gate_object -> not_gates = 0;
     
     return(gate_object);
 }

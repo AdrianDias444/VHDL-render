@@ -45,9 +45,12 @@ int main(int argc, char** argv)
     t_gates* gate_manager = parser_file(argv[1]);
 
 
-	char* and = ft_itoa(gate_manager -> and_gates);
-	char* or = ft_itoa(gate_manager -> or_gates);
-	char* not = ft_itoa(gate_manager -> not_gates);
+	char* and;
+	and = ft_strjoin("and gates: ", ft_itoa(gate_manager -> and_gates));
+	char* or;
+	or = ft_strjoin("or gates: ", ft_itoa(gate_manager -> or_gates));
+	char* not;
+	not = ft_strjoin("not gates", ft_itoa(gate_manager -> not_gates));
 
 
 	while(!WindowShouldClose())
