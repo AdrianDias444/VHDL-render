@@ -2,6 +2,10 @@ NAME = library.a
 
 SOURCES = raylib/draw_text.c \
 		raylib/draw_image.c \
+		raylib/draw_poly.c \
+		raylib/draw_circle_sector.c \
+		raylib/load_texture.c \
+		raylib/draw_and_gate.c \
 		\
 		lib/str/ft_split.c \
 		lib/str/ft_strjoin.c \
@@ -16,8 +20,9 @@ SOURCES = raylib/draw_text.c \
 		lib/get_next_line/get_next_line.c \
 		lib/get_next_line/get_next_line_utils.c \
 		\
-		parser/parser.c
-
+		parser/parser.c \
+		\
+		utils/end_program.c
 
 OBJECTS = $(SOURCES:%.c=%.o)
 CC = cc -g
