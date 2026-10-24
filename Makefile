@@ -2,10 +2,10 @@ NAME = library.a
 
 SOURCES = raylib/draw_text.c \
 		raylib/draw_image.c \
-		raylib/draw_poly.c \
-		raylib/draw_circle_sector.c \
 		raylib/load_texture.c \
 		raylib/draw_and_gate.c \
+		raylib/utils/f_DrawCircleSectorLinesEx.c \
+		raylib/utils/f_DrawLineEx.c \
 		\
 		lib/str/ft_split.c \
 		lib/str/ft_strjoin.c \
