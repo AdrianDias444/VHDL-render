@@ -3,7 +3,11 @@ NAME = library.a
 SOURCES = raylib/draw_text.c \
 		raylib/draw_image.c \
 		raylib/load_texture.c \
-		raylib/draw_and_gate.c \
+		\
+		raylib/gates/alloc/alloc_and2.c \
+		raylib/gates/alloc/alloc_node.c \
+		raylib/gates/draw_and_gate.c \
+		\
 		raylib/utils/f_DrawCircleSectorLinesEx.c \
 		raylib/utils/f_DrawLineEx.c \
 		\
