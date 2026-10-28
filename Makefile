@@ -1,12 +1,10 @@
 NAME = library.a
 
-SOURCES = raylib/draw_text.c \
-		raylib/draw_image.c \
-		raylib/load_texture.c \
-		\
-		raylib/gates/alloc/alloc_and2.c \
+SOURCES = raylib/gates/alloc/alloc_and2.c \
 		raylib/gates/alloc/alloc_node.c \
 		raylib/gates/draw_and_gate.c \
+		\
+		raylib/draw.c \
 		\
 		raylib/utils/f_DrawCircleSectorLinesEx.c \
 		raylib/utils/f_DrawLineEx.c \

@@ -12,6 +12,7 @@ t_gates* create_gate_manager()
     gate_object -> and_gates = 0;
     gate_object -> or_gates = 0;
     gate_object -> not_gates = 0;
+	gate_object -> have_gates = 1;
     
     return(gate_object);
 }
@@ -54,6 +55,14 @@ t_gates* parser_file(char* file)
     gate_manager -> and_gates = count_word("and", file);
     gate_manager -> or_gates = count_word("or", file);
     gate_manager -> not_gates = count_word("not", file);
+
+	if(gate_manager->and_gates == 0) {
+		if(gate_manager->or_gates == 0) {
+			if(gate_manager->not_gates == 0) {
+				gate_manager->have_gates = 0;
+			}
+		}
+	}
 
     return(gate_manager);
 }

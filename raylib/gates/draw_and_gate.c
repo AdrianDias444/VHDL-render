@@ -10,10 +10,21 @@ t_and2* draw_and_gate(t_node* input1, t_node* input2)
     t_and2* and;
 	t_node* output;
 
+	// Caso algum dos inputs esteja muito proxima das extremidades
+	if(input1->vector.y < 30 || input2->vector.y < 30)
+		return(NULL);
+	// Caso os inputs comecem em abcissas diferentes
+	// Implementar inputs com diferentes abcissas
+	if(input1->vector.x != input2->vector.x)
+		return(NULL);
+	// Caso esteja invertido as entradas
+	// Implementar Logica para inversao.
+	if(input1->vector.y > input2->vector.y)
+		return(NULL);
     and = alloc_and2();
 
     thick = 5;
-    radius = 0.693* (input2->vector.y - input1->vector.y);
+    radius = 0.5* (input2->vector.y - input1->vector.y) + 17;
 
 //------------------
     and->input1 = input1;

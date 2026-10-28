@@ -1,1 +1,1 @@
-f <= a1 and (a2 or a3)
+f <= a1 and (a2 and a3)
