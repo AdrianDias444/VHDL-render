@@ -11,7 +11,7 @@ typedef struct s_node
 
 typedef struct s_btree
 {
-
+	node* last_operation;
 } t_btree;
 
 
