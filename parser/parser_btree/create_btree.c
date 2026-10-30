@@ -8,7 +8,6 @@ t_btree* create_btree()
 
 	btree = alloc_btree();
 	
-
-
+	
 	return(btree);
 }

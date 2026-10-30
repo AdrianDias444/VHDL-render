@@ -7,6 +7,7 @@ typedef struct s_node
 	struct s_node*	right_node;
 	char*			operation;
 	int				logic_value;
+	struct s_node*	next;
 } node;
 
 typedef struct s_btree
@@ -15,6 +16,9 @@ typedef struct s_btree
 } t_btree;
 
 
-
+typedef struct s_queue
+{
+	node* first_node;
+} t_queue;
 
 #endif
