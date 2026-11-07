@@ -1,5 +1,9 @@
 #include "../../parser.h"
 
+
+// This function remove the first element
+// of the queue and returns it.
+
 t_node* queue_pop(t_queue* queue)
 {
 	t_node* first_node;

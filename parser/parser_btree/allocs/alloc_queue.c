@@ -9,7 +9,6 @@ t_queue* alloc_queue()
 		return(NULL);
 
 	queue->first_node = NULL;
-	queue->next = NULL;
 
 	return(queue);
 }

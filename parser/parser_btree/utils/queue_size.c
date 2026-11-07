@@ -1,6 +1,8 @@
 #include "../../parser.h"
 
 
+// This function returns the size of a queue
+
 size_t queue_size(t_queue* queue)
 {
 	t_node*	current

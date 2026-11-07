@@ -1,5 +1,7 @@
 #include "../../parser.h"
 
+// this function returns the last node of a queue
+
 t_node* queue_last_node(t_queue* queue)
 {
 	t_node* current;
