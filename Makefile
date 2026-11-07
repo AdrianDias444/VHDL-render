@@ -48,4 +48,7 @@ fclean: clean
 	$(RM) $(NAME)
 re: fclean all
 
+test: 
+	$(CC) 
+
 .PHONY: all clean fclean re

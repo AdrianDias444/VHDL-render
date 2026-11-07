@@ -11,7 +11,7 @@
 #include <fcntl.h>
 
 #include "lib/lib.h"
-
+#include "parser/parser.h"
 
 //-----------------------
 // struct for parser

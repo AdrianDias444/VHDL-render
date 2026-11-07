@@ -40,11 +40,12 @@
 // 1'st call of bfs -> [17, 23, 27, 3, 8, 11]
 // 2'nd call of bfs -> [7 14, 2]
 // 3'rd call of bfs -> [12, 13]
-2// 4'th call of bfs -> [5]
+// 4'th call of bfs -> [5]
 
 
 t_node* bfs(t_btree* btree, int operation_nb)
 {
-
+	static t_queue* level_queue;
+		
 }
 

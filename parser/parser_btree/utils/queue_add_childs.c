@@ -11,28 +11,18 @@
 
 
 // This function add both childs of a node
-// of the node in btree.
-// If they exist.
+// in btree. If they exist.
 
-void queue_add_childs(t_queue* queue, t_btree* btree)
+void queue_add_childs(t_queue* queue)
 {
 	t_node* head;
-	t_node*	left_node;
-	t_node*	right_node;
 
-	if(!queue || !btree)
+	if(!queue)
 		return ;
-	
-	head = queue_pop(queue);	
-	while(head)
-	{
-		left_node = head->left_node;
-		right_node = head->right_node;
-	
-		if(left_node)
-			queue_push_back(left_node);
-		if(head->right_node)
-			queue_push_back(head->right_node);
-		head = queue_pop(queue);
-	}
+
+	head = queue_pop(queue);
+	if(head->left_node)
+		queue_push_back(queue, head->left_node);
+	if(head->right_node)
+		queue_push_back(queue, head->right_node);
 }
