@@ -1,4 +1,4 @@
-#include "../lib.h"
+#include "../../header.h"
 
 
 char	*get_next_line(int fd)

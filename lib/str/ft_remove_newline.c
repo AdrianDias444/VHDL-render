@@ -1,4 +1,4 @@
-#include "../lib.h"
+#include "../../header.h"
 
 
 char* ft_remove_newline(char* str)

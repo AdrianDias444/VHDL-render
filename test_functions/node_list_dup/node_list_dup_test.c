@@ -9,7 +9,7 @@
 // of linked list
 // -------------------------------------------
 
-#include "../../parser.h"
+#include "../../header.h"
 
 // this verify, if 2 nodes have the same content
 int nodes_checker(node* first, node* second)
@@ -75,5 +75,11 @@ void node_list_dup_test()
 	dup_node = node_list_dup(node1);
 
 	printf("Node1: \n");
-	printf("Original left_node: ")
+	printf("Node 1 and Node 1 duplicated: %d", nodes_checker(node1, dup_node));
+
+	printf("Node2: \n");
+	printf("Node 2 and Node 2 duplicated: %d", nodes_checker(node2, dup_node->next));
+
+	printf("Node3: \n");
+	printf("Node 3 and Node 3 duplicated: %d", nodes_checker(node3, dup_node->next->next));
 }

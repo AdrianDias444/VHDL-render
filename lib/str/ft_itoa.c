@@ -1,4 +1,4 @@
-#include "../lib.h"
+#include "../../header.h"
 
 
 static int	ft_int_len(int n)

@@ -1,4 +1,4 @@
-#include "../../header.h"
+#include "../../../header.h"
 
 
 t_and2* draw_and_gate(t_node* input1, t_node* input2)

@@ -1,4 +1,4 @@
-#include "../lib.h"
+#include "../../header.h"
 
 
 char	*read_newline(int fd, char *stack)

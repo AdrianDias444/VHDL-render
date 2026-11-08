@@ -12,6 +12,9 @@
 
 #include "lib/lib.h"
 #include "parser/parser.h"
+#include "raylib/raylib.h"
+#include "test_functions.h"
+#include "utils/utils.h"
 
 //-----------------------
 // struct for parser

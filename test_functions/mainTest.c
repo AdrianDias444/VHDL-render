@@ -6,8 +6,6 @@
 
 
 
-
-
 int main()
 {
 	node_list_dup_test();

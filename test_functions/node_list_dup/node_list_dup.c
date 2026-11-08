@@ -1,6 +1,5 @@
 #include "../../header.h"
 
-
 t_node* node_list_dup(t_node* first_node)
 {
 	t_node* dup_node;

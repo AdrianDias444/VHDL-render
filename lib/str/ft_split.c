@@ -1,4 +1,4 @@
-#include "../lib.h"
+#include "../../header.h"
 
 
 static size_t	ft_word_count(char const *s, char c)
