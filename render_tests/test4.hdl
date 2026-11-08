@@ -1,0 +1,1 @@
+f <= not a0 or (a1 and (a2 and a3))

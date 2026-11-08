@@ -12,24 +12,29 @@
 #include "../../parser.h"
 
 // this verify, if 2 nodes have the same content
-int nodes_checker(t_node* first, t_node* second)
+int nodes_checker(node* first, node* second)
 {
+	if(!first && !second)
+		return(1);
 	if(!first || !second)
-		return 0;
-	if (nodes_checker(first->left_node, second->left_node) == 0);
 		return (0);
-	if (nodes_checker(first->right_node, second->right_node) == 0);
-		return (0);
-	if(strcmp(first->operation, second->operation) != 0)
-		return(0);
 	if(first->logic_value != second->logic_value)
 		return(0);
+
+	if (first->operation && second->operation) {
+		if (strcmp(first->operation, second->operation) != 0)
+			return (0);
+	}
+	if (!nodes_checker(first->left_node, second->left_node));
+		return (0);
+	if (!nodes_checker(first->right_node, second->right_node));
+		return (0);
 	return(1);
 }
 
 
 
-void config_node1(t_node* node)
+void config_node1(node* node)
 {
 	node -> operation = "and2";
 	node -> logic_value = 1;
@@ -50,10 +55,10 @@ void config_node3(t_node* node)
 
 void node_list_dup_test()
 {
-	t_node* dup_node;
-	t_node* node1;
-	t_node* node2;
-	t_node* node3;
+	node* dup_node;
+	node* node1;
+	node* node2;
+	node* node3;
 
 	node1 = alloc_node();
 	node2 = alloc_node();
