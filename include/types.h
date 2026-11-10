@@ -21,11 +21,16 @@ typedef struct s_node
 } t_node;
 
 
+//----------------------
+// struct for node, can be a input or output node
 typedef struct logic_node {
     int     signal;
     Vector2 vector;
 } t_logic_node;
 
+
+//----------------------
+// struct for and gate
 typedef struct s_and2 {
     t_logic_node*	output;
     t_logic_node*	input1;

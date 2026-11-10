@@ -8,14 +8,12 @@
 
 #include "../src/lib/lib.h"
 #include "../src/parser/parser.h"
-#include "../src/raylibGates/raylibGates.h"
-#include "../src/test_functions/test.h"
+#include "../src/graphics/graphics.h"
 #include "../src/utils/utils.h"
 
 
-//----------------------
-// struct for node, can be a input or output node
 
+#include "../tests/functions/test.h"
 
 
 

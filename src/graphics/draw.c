@@ -1,4 +1,4 @@
-#include "raylibGates.h"
+#include "graphics.h"
 
 
 void draw(t_gates* gates)

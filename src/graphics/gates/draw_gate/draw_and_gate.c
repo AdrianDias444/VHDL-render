@@ -1,4 +1,4 @@
-#include "../../raylibGates.h"
+#include "../../graphics.h"
 
 
 t_and2* draw_and_gate(t_logic_node* input1, t_logic_node* input2)

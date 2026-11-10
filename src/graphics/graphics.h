@@ -1,5 +1,5 @@
-#ifndef RAYLIBGATES_H
-#define RAYLIBGATES_H
+#ifndef GRAPHICS_H
+#define GRAPHICS_H
 
 
 #include "../../include/header.h"

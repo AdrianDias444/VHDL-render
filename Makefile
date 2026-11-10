@@ -1,4 +1,6 @@
-NAME = library.a
+NAME = build/lib/library.a
+
+TEST_LIB = build/lib/test.a
 
 SOURCES = src/lib/get_next_line/get_next_line.c \
 		src/lib/get_next_line/get_next_line_utils.c \
@@ -34,24 +36,25 @@ SOURCES = src/lib/get_next_line/get_next_line.c \
 		\
 		src/parser/count_gates.c \
 		\
-		src/raylibGates/gates/allocs/alloc_and2.c \
-		src/raylibGates/gates/allocs/alloc_logic_node.c \
+		src/graphics/gates/allocs/alloc_and2.c \
+		src/graphics/gates/allocs/alloc_logic_node.c \
 		\
-		src/raylibGates/gates/draw_gate/draw_and_gate.c \
+		src/graphics/gates/draw_gate/draw_and_gate.c \
 		\
-		src/raylibGates/utils/f_DrawCircleSectorLinesEx.c \
-		src/raylibGates/utils/f_DrawLineEx.c \
+		src/graphics/utils/f_DrawCircleSectorLinesEx.c \
+		src/graphics/utils/f_DrawLineEx.c \
 		\
-		src/raylibGates/draw.c \
-		\
-		src/test_functions/node_list_dup/node_list_dup_test.c \
-		src/test_functions/node_list_dup/node_list_dup.c \
-		\
-		src/test_functions/mainTest.c \
+		src/graphics/draw.c \
 		\
 		src/utils/end_program.c
 
-OBJECTS = $(SOURCES:%.c=%.o)
+TEST = tests/functions/node_list_dup/node_list_dup_test.c \
+	tests/functions/node_list_dup/node_list_dup.c
+
+
+OBJECTS = $(patsubst src/%.c,build/obj/src/%.o,$(SOURCES))
+TEST_OBJ = $(patsubst tests/%.c,build/obj/tests/%.o,$(TEST))
+
 CC = cc
 CFLAGS = -g
 COMPRESS = ar rcs
@@ -59,26 +62,38 @@ RM = rm -f
 LIB = -lraylib
 
 MAIN_FILE = src/main.c
-TEST_FILE = test_functions/mainTest.c
-
+TEST_FILE = tests/functions/mainTest.c
 
 all: $(NAME)
-	$(CC) -o bin/vhdl_render.out $(MAIN_FILE) $(NAME) $(LIB) 
-	$(RM) $(OBJECTS)
+	mkdir -p bin
+	$(CC) -o bin/vhdl_render.out $(MAIN_FILE) $(NAME) $(LIB)
+
+
 $(NAME): $(OBJECTS)
+	mkdir -p $(dir $(NAME))
 	$(COMPRESS) $(NAME) $(OBJECTS)
 
 
-%.o: %.c
+build/obj/%.o: %.c
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	$(RM) $(OBJECTS)
-	$(RM) bin/vhdl_render.out
+	rm -rf build/obj
+	$(RM) bin/*.out
+
 fclean: clean
-	$(RM) $(NAME)
+	rm -rf build
+
 re: fclean all
 
-test: 
-	$(CC) $(TEST_FILE) $(NAME)
+functions: $(TEST_LIB)
+	$(CC) -o bin/test.out $(TEST_FILE) $(TEST_LIB) $(NAME)
 
-.PHONY: all clean fclean re
+$(TEST_LIB): $(TEST_OBJ)
+	mkdir -p $(dir $(TEST_LIB))
+	$(COMPRESS) $(TEST_LIB) $(TEST_OBJ)
+
+
+
+.PHONY: all clean fclean re functions
